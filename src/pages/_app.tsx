@@ -4,6 +4,7 @@
 import { AppProps } from 'next/app';
 import React from 'react';
 import { ThemeProvider } from 'styled-components';
+import wrapper from 'state/wrapper';
 import GlobalStyle from 'styles/global';
 import theme from 'styles/theme';
 
@@ -20,8 +21,11 @@ const App = ({ Component, pageProps }: AppProps): React.ReactElement => {
   );
 };
 
+// wrap application with redux
+const WrappedApp = wrapper.withRedux(App);
+
 
 /**
  * EXPORTS
  */
-export default App;
+export default WrappedApp;
