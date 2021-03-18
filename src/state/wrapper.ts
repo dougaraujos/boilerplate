@@ -2,7 +2,7 @@
  * IMPORTS
  */
 import { createWrapper } from 'next-redux-wrapper';
-import createStore from 'state/store';
+import { createStore } from 'state/store';
 
 
 /**
