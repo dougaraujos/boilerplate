@@ -2,6 +2,7 @@
  * IMPORTS
  */
 import { combineReducers } from 'redux';
+import { persistConfig, persistReducer } from './persist';
 
 
 /**
@@ -11,6 +12,12 @@ const reducer = combineReducers({});
 
 
 /**
+ * I create a persisted root reducer.
+ */
+const persistedReducer = persistReducer(persistConfig, reducer);
+
+
+/**
  * EXPORTS
  */
-export default reducer;
+export { persistedReducer, reducer };
