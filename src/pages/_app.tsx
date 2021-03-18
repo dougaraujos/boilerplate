@@ -3,7 +3,9 @@
  */
 import { AppProps } from 'next/app';
 import React from 'react';
+import { PersistGate } from 'redux-persist/integration/react';
 import { ThemeProvider } from 'styled-components';
+import { persistor } from 'state/store';
 import wrapper from 'state/wrapper';
 import GlobalStyle from 'styles/global';
 import theme from 'styles/theme';
@@ -14,10 +16,12 @@ import theme from 'styles/theme';
  */
 const App = ({ Component, pageProps }: AppProps): React.ReactElement => {
   return (
-    <ThemeProvider theme={theme}>
-      <Component {...pageProps} />
-      <GlobalStyle />
-    </ThemeProvider>
+    <PersistGate loading={null} persistor={persistor}>
+      <ThemeProvider theme={theme}>
+        <Component {...pageProps} />
+        <GlobalStyle />
+      </ThemeProvider>
+    </PersistGate>
   );
 };
 
