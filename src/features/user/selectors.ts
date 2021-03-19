@@ -20,6 +20,14 @@ const userIsLoading = (state): boolean => (
 
 
 /**
+ * I check whether the user is logged or not.
+ */
+const userIsLogged = (state): boolean => (
+  selectSlice(state).token !== undefined
+);
+
+
+/**
  * EXPORTS
  */
-export { selectSlice, userIsLoading };
+export { selectSlice, userIsLoading, userIsLogged };
