@@ -12,6 +12,14 @@ const selectSlice = (state): IUserState => state[user.name];
 
 
 /**
+ * I check whether the user has a request is pending or not.
+ */
+const userIsLoading = (state): boolean => (
+  selectSlice(state)._request?.status === 'pending'
+);
+
+
+/**
  * EXPORTS
  */
-export { selectSlice };
+export { selectSlice, userIsLoading };
