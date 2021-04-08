@@ -5,6 +5,7 @@ import { AppProps } from 'next/app';
 import React from 'react';
 import { PersistGate } from 'redux-persist/integration/react';
 import { ThemeProvider } from 'styled-components';
+import { actions } from 'infra/notify';
 import { persistor } from 'state/store';
 import wrapper from 'state/wrapper';
 import GlobalStyle from 'styles/global';
@@ -35,8 +36,18 @@ const App = ({ Component, pageProps, router }: AppProps): React.ReactElement => 
   );
 };
 
+// get initial properties
+App.getInitialProps = async ({ ctx }) => {
+  // dispatch action to notify reset
+  ctx.store.dispatch(actions.reset({}));
+
+  // return properties
+  return {};
+};
+
 // wrap application with redux
 const WrappedApp = wrapper.withRedux(App);
+
 
 
 /**
