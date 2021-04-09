@@ -12,6 +12,12 @@ const selectSlice = (state): IUserState => state[user.name];
 
 
 /**
+ * I select the user token.
+ */
+const selectToken = (state): string => selectSlice(state).token;
+
+
+/**
  * I check whether the user has a request is pending or not.
  */
 const userIsLoading = (state): boolean => (
@@ -30,4 +36,4 @@ const userIsLogged = (state): boolean => (
 /**
  * EXPORTS
  */
-export { selectSlice, userIsLoading, userIsLogged };
+export { selectSlice, selectToken, userIsLoading, userIsLogged };
