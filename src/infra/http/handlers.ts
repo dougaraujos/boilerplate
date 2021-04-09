@@ -30,6 +30,18 @@ const handleError =
 
 
 /**
+ * I handle a request success.
+ */
+const handleSuccess = (data, dispatch): void => {
+  // no data: do nothing
+  if (data === undefined) return;
+
+  // dispatch action to notify success
+  dispatch(actions.success(data));
+};
+
+
+/**
  * EXPORTS
  */
-export { handleError };
+export { handleError, handleSuccess };
